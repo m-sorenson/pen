@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Audit Machine Software Portal</title>
+<style type="text/css">
+
+body {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+	/*height: 100vh;*/
+    height: auto;
+}
+
+.margin-0 {
+	margin: 0px;
+}
+
+#loader {
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3598dc;
+	border-bottom: 16px solid #3598dc;
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -60px;
+	margin-top: -60px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+#main {
+	display: none;
+}
+
+.auto-style1 {
+	text-align: center;
+}
+
+.auto-style2 {
+	border-width: 0px;
+}
+
+.index-main-content {
+	width: 100%;
+	text-align: center;
+	display: flex;
+    justify-content: center;
+	/* margin-top: 50px; */
+	transform: scale(0);
+  	transition: transform .4s cubic-bezier(.5,0,.3,1);
+}
+
+.background-video {
+	display: table;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.background-video-inner {
+	position: relative;
+	display: table-cell;
+    vertical-align: middle;
+	width: 100%;
+}
+
+.background-video-inner video {
+	width: 100%;
+}
+
+.top-back-remover {
+	position: inherit;
+    top: 10px;
+    height: 20px;
+    background: white;
+}
+
+.bottom-back-remover {
+	position: inherit;
+    bottom: 10px;
+    height: 20px;
+    background: white;
+}
+
+
+.links {
+	background-color: #121214;
+	color: #fff;
+	width: 100%;
+	padding: 20px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+.links a {
+	color: #fff;
+}
+
+.links a:hover {
+	color: blue;
+}
+
+.navigation {
+    background-color: #121214;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: space-between;
+    display: flex;
+}
+
+</style>
+</head>
+
+<body class="margin-0">
+	<div id="loader"></div>
+	<div id="main">
+		<div class="background-video">
+			<div class="background-video-inner">
+				<div class="top-back-remover">
+					
+				</div>
+				<video id="index-video" playsinline preload="auto" muted>
+					<source src="videos/background-video.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+				<div class="bottom-back-remover">
+					
+				</div>
+			</div>		
+		</div>
+		<div class="index-main-content">
+			<div style="width: 1100px;">
+				<div class="navigation">
+					<a href="/portal/">
+						<img class="auto-style2" src="images/CGRC-User-Side.png" width="550px" />
+					</a>
+					<a href="/auditprotocol/">
+						<img class="auto-style2" src="images/CGRC-Admin-Side.png" width="550px" />
+					</a>
+				</div>
+				<img alt="" class="auto-style2" src="images/CGRC-Header.png" width="100%" />
+				<div class="links">
+					<p>
+						Do you need assistance with the IT Audit Machine (ITAM)? If so, please contact 
+						<a href="https://continuumgrc.atlassian.net/servicedesk/customer/portals">client support</a>
+						 or call 1-888-896-6207 for assistance.
+					</p>
+					<p>
+						<a href="#">Security</a>
+						<span> | </span>
+						<a href="#">Master Subscription Agreement</a>
+						<span> | </span>
+						<a href="#">Privacy Policy</a>
+						<span> | </span>
+						<a href="#"> Usage Policy </a>
+					</p>
+					<div>
+						<a href="https://continuumgrc.com/">AUDIT MACHINE</a>
+						<span> | </span>
+						<a href="https://continuumgrc.com/custom-policies/">POLICY MACHINE</a>
+						<span> | </span>
+						<a href="https://continuumgrc.atlassian.net/servicedesk/customer/portals">CLIENT SUPPORT PORTAL</a>
+						<span> | </span>
+						<a href="https://continuumgrc.atlassian.net/wiki/spaces/CGK/"> DOCUMENTATION </a>
+					</div>
+					<div>
+						Patent Pending, &copy; 2000-2021 Continuum GRC, Inc.. All rights reserved.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script type='text/javascript'>
+	document.getElementById('index-video').addEventListener('loadeddata', function() {
+		setTimeout(function() {
+			document.getElementById('loader').style.display = "none";
+    		document.getElementById('main').style.display ="inherit";
+    		document.getElementById('index-video').play();
+
+		}, 2000);
+	})
+    document.getElementById('index-video').addEventListener('ended', endHandler, false);
+    function endHandler(e) {
+        document.getElementsByClassName('background-video')[0].style.display = 'none';
+		document.getElementsByClassName('index-main-content')[0].style.transform = 'scale(1)';
+		document.getElementsByTagName('body')[0].style.background = '#121214';
+		
+    }
+</script>
+</html>
